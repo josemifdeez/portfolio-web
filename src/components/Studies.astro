@@ -1,0 +1,31 @@
+---
+import StudiesItem from "./StudiesItem.astro"
+const STUDIES = [
+  {
+    date: "2022-2024",
+    title: "Grado Superior de Desarrollo de Aplicaciones Multiplataforma",
+    company: "Medac",
+    description:
+      "",
+    link: "",
+  },
+  {
+    date: "",
+    title: "B2 First",
+    company: "Cambridge English",
+    description:
+      "",
+    link: "",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    STUDIES.map((studies) => (
+      <li class="">
+        <StudiesItem {...studies} />
+      </li>
+    ))
+  }
+</ol>

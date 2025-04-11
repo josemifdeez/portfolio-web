@@ -1,0 +1,40 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCE = [
+  {
+    location: "Málaga, España",
+    date: "Septiembre 2024 - Febrero 2025",
+    title: "Desarrollador de Software",
+    company: "Medac",
+    description:
+      "Desarrollo de un Salón de Ferias Virtual en Unity, generando stands dinámicamente con datos de Firebase. Implementación de autenticación y gestión de usuarios mediante tokens. Creación de guía interactiva en Unity con tutoriales virtuales para mantenimiento de ascensores.",
+    link: "https://twitch.tv/midudev",
+  },
+  {
+    location: "Raamsdonksveer, Países Bajos",
+    date: "Enero 2023 - Junio 2023",
+    title: "Operador de logística",
+    company: "Leen Bakker",
+    description:
+      "Gestión eficiente de pedidos, inventario y optimización de flujos operativos, reduciendo tiempos de espera. Trabajo colaborativo en entornos dinámicos.",
+  },
+  {
+    location: "San Ġwann, Malta",
+    date: "Marzo 2022 - Junio 2022",
+    title: "Técnico informático",
+    company: "The Notebook Centre",
+    description:
+      "Diagnóstico y reparación de hardware y software en equipos informáticos. Instalación y actualización de sistemas operativos y aplicaciones. Asesoría tecnológica personalizada a clientes.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCE.map((experience) => (
+      <li class="">
+        <ExperienceItem {...experience} />
+      </li>
+    ))
+  }
+</ol>

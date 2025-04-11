@@ -1,0 +1,24 @@
+# Dependencias
+node_modules
+
+# Archivos de compilación/distribución
+dist
+.astro
+
+# Archivos de entorno (si usas alguno)
+.env
+.env.*
+!.env.example
+
+# Archivos de sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de configuración del editor
+.vscode/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

@@ -1,0 +1,120 @@
+---
+// Icon Imports
+import GitHub from "./icons/GitHub.astro"
+import Unity from "./icons/Unity.astro"
+import CSharp from "./icons/CSharp.astro"
+import PHP from "./icons/PHP.astro"
+import MySQL from "./icons/MySQL.astro"
+import Link from "./icons/Link.astro"
+import NextJS from "./icons/NextJS.astro"
+import React from "./icons/React.astro"           // SVG con fill original #61DAFB
+import TypeScript from "./icons/TypeScript.astro" // SVG con fills originales #3178C6 y #FFF
+import Supabase from "./icons/Supabase.astro"     // SVG con fills originales (url y #3ECF8E)
+import Tailwind from "./icons/Tailwind.astro"     // SVG con fill original #38bdf8
+import ShadCN from "./icons/ShadCN.astro"
+
+// Components
+import LinkButton from "./LinkButton.astro"
+
+// Tag Definitions (Dark Backgrounds, White Text)
+const TAGS = {
+  // Existing Tags
+  UNITY: { name: "Unity", class: "bg-black text-white", icon: Unity },
+  CSHARP: { name: "C#", class: "bg-[#280068] text-white", icon: CSharp },
+  PHP: { name: "PHP", class: "bg-[#372F77] text-white", icon: PHP },
+  MYSQL: { name: "MySQL", class: "bg-[#003366] text-white", icon: MySQL },
+
+  // New/Updated Tags - Adjusted Styles
+  NEXTJS: { name: "Next.js", class: "bg-black text-white", icon: NextJS },
+  REACT: { name: "React", class: "bg-[#20232A] text-white", icon: React }, // Fondo oscuro, texto blanco
+  TYPESCRIPT: { name: "TypeScript", class: "bg-[#002F6C] text-white", icon: TypeScript }, // Fondo oscuro, texto blanco
+  SUPABASE: { name: "Supabase", class: "bg-[#1E7E5A] text-white", icon: Supabase }, // Fondo oscuro, texto blanco
+  TAILWIND: { name: "Tailwind CSS", class: "bg-[#0E7490] text-white", icon: Tailwind }, // Fondo oscuro, texto blanco
+  SHADCNUI: { name: "ShadCN/UI", class: "bg-gray-800 text-white", icon: ShadCN }, // Fondo oscuro, texto blanco
+}
+
+// Project List
+const PROJECTS = [
+ {
+    title: "Sesiones Fotos IA",
+    description:
+      "Plataforma web para generar fotos profesionales con IA, ideal para LinkedIn, CVs y portfolios.",
+    link: "https://sesionesfotosia.com",
+    image: "/projects/sesiones.webp",
+    tags: [TAGS.NEXTJS, TAGS.REACT, TAGS.TYPESCRIPT, TAGS.SUPABASE, TAGS.TAILWIND, TAGS.SHADCNUI],
+  },
+  {
+    title: "Juego tipo Stardew Valley (TFG)",
+    description:
+      "Juego de simulación de vida inspirado en Stardew Valley, desarrollado como Trabajo de Fin de Grado.",
+    link: "https://josemifdeez.github.io/stardew-like-game/",
+    github: "https://github.com/josemifdeez/stardew-like-game",
+    image: "/projects/stardew.webp",
+    tags: [TAGS.CSHARP, TAGS.UNITY],
+  },
+  {
+    title: "Runner 3D con Power-Ups y Leaderboard",
+    description:
+      "Juego endless runner, con power-ups, leaderboard online y almacenamiento de puntuaciones.",
+      github: "https://github.com/josemifdeez/runner3d",
+    image: "/projects/runner.webp",
+    tags: [TAGS.CSHARP, TAGS.PHP, TAGS.MYSQL, TAGS.UNITY],
+  },
+]
+---
+
+<!-- HTML Structure -->
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link, github }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+      <div class="w-full md:w-1/2">
+        <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+          <img alt={`Captura de pantalla del proyecto ${title}`} class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+        </div>
+      </div>
+
+      <div class="w-full md:w-1/2 md:max-w-lg">
+        <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+          {title}
+        </h3>
+        <div class="flex flex-wrap mt-2">
+          {/* Tag list */}
+          <ul class="flex flex-row flex-wrap mb-2 gap-x-2 gap-y-2">
+              {tags.map((tag) => (
+                <li>
+                  <span
+                    class={`flex gap-x-2 items-center rounded-full text-xs ${tag.class} py-1 px-2 `}
+                  >
+                    {/* Render icon ONLY if tag.icon is NOT null */}
+                    {tag.icon && <tag.icon class="size-4 flex-shrink-0" />}
+                    {tag.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+
+          {/* Description */}
+          <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+
+          {/* Footer Links */}
+          <footer class="flex items-end justify-start mt-4 gap-x-4">
+              {github && (
+                <LinkButton href={github}>
+                  <GitHub class="size-6" />
+                  Code
+                </LinkButton>
+              )}
+              {link && (
+                <LinkButton href={link}>
+                  <Link class="size-4" />
+                  Preview
+                </LinkButton>
+              )}
+            </footer>
+        </div>
+      </div>
+    </article>
+    ))
+  }
+</div>
