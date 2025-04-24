@@ -7,34 +7,44 @@ import PHP from "./icons/PHP.astro"
 import MySQL from "./icons/MySQL.astro"
 import Link from "./icons/Link.astro"
 import NextJS from "./icons/NextJS.astro"
-import React from "./icons/React.astro"           // SVG con fill original #61DAFB
-import TypeScript from "./icons/TypeScript.astro" // SVG con fills originales #3178C6 y #FFF
-import Supabase from "./icons/Supabase.astro"     // SVG con fills originales (url y #3ECF8E)
-import Tailwind from "./icons/Tailwind.astro"     // SVG con fill original #38bdf8
+import React from "./icons/React.astro"
+import TypeScript from "./icons/TypeScript.astro"
+import Supabase from "./icons/Supabase.astro"
+import Tailwind from "./icons/Tailwind.astro"
 import ShadCN from "./icons/ShadCN.astro"
+import LaravelIcon from "./icons/Laravel.astro"   // CRM Project Icon
+import VueIcon from "./icons/Vue.astro"           // CRM Project Icon
+import ViteIcon from "./icons/Vite.astro"         // CRM Project Icon
+import SassIcon from "./icons/Sass.astro"         // CRM Project Icon
+import PostgreSQLIcon from "./icons/PostgreSQL.astro" // CRM Project Icon
+// import SQLiteIcon from "./icons/SQLite.astro" // Si no lo usas en otros proyectos, puedes quitarlo
 
 // Components
 import LinkButton from "./LinkButton.astro"
 
 // Tag Definitions (Dark Backgrounds, White Text)
 const TAGS = {
-  // Existing Tags
+  // Base Tags (ajusta según necesites)
   UNITY: { name: "Unity", class: "bg-black text-white", icon: Unity },
   CSHARP: { name: "C#", class: "bg-[#280068] text-white", icon: CSharp },
   PHP: { name: "PHP", class: "bg-[#372F77] text-white", icon: PHP },
   MYSQL: { name: "MySQL", class: "bg-[#003366] text-white", icon: MySQL },
-
-  // New/Updated Tags - Adjusted Styles
   NEXTJS: { name: "Next.js", class: "bg-black text-white", icon: NextJS },
-  REACT: { name: "React", class: "bg-[#20232A] text-white", icon: React }, // Fondo oscuro, texto blanco
-  TYPESCRIPT: { name: "TypeScript", class: "bg-[#002F6C] text-white", icon: TypeScript }, // Fondo oscuro, texto blanco
-  SUPABASE: { name: "Supabase", class: "bg-[#1E7E5A] text-white", icon: Supabase }, // Fondo oscuro, texto blanco
-  TAILWIND: { name: "Tailwind CSS", class: "bg-[#0E7490] text-white", icon: Tailwind }, // Fondo oscuro, texto blanco
-  SHADCNUI: { name: "ShadCN/UI", class: "bg-gray-800 text-white", icon: ShadCN }, // Fondo oscuro, texto blanco
+  REACT: { name: "React", class: "bg-[#20232A] text-white", icon: React },
+  TYPESCRIPT: { name: "TypeScript", class: "bg-[#002F6C] text-white", icon: TypeScript },
+  SUPABASE: { name: "Supabase", class: "bg-[#1E7E5A] text-white", icon: Supabase },
+  TAILWIND: { name: "Tailwind CSS", class: "bg-[#0E7490] text-white", icon: Tailwind },
+  SHADCNUI: { name: "ShadCN/UI", class: "bg-gray-800 text-white", icon: ShadCN },
+  LARAVEL: { name: "Laravel", class: "bg-[#6F140C] text-white", icon: LaravelIcon }, // Rojo MUY oscuro
+  VUEJS: { name: "Vue.js", class: "bg-[#2D4B37] text-white", icon: VueIcon },       // Mantenido
+  VITE: { name: "Vite", class: "bg-[#4A3A8A] text-white", icon: ViteIcon },         // Mantenido
+  SASS: { name: "Sass", class: "bg-[#662F4C] text-white", icon: SassIcon },         // Púrpura/Rosa MUY oscuro
+  POSTGRESQL: { name: "PostgreSQL", class: "bg-[#214963] text-white", icon: PostgreSQLIcon }, // Mantenido
 }
 
 // Project List
 const PROJECTS = [
+
  {
     title: "Sesiones Fotos IA",
     description:
@@ -51,6 +61,22 @@ const PROJECTS = [
     github: "https://github.com/josemifdeez/stardew-like-game",
     image: "/projects/stardew.webp",
     tags: [TAGS.CSHARP, TAGS.UNITY],
+  },
+  {
+    title: "CRM para Freelancers",
+    description:
+      "Aplicación web SPA eficiente para ayudar a los freelancers a gestionar sus clientes, proyectos y tareas diarias.",
+    link: "https://crm-freelancers.onrender.com/", // <-- Enlace Preview añadido
+    github: "https://github.com/josemifdeez/crm-freelancers", // <-- Enlace Code añadido
+    image: "/projects/crm.webp",
+    tags: [
+        TAGS.LARAVEL,
+        TAGS.VUEJS,
+        TAGS.VITE,
+        TAGS.TAILWIND,
+        TAGS.SASS,
+        TAGS.POSTGRESQL
+    ],
   },
   {
     title: "Runner 3D con Power-Ups y Leaderboard",
@@ -97,7 +123,7 @@ const PROJECTS = [
           {/* Description */}
           <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
 
-          {/* Footer Links */}
+          {/* Footer Links (Ahora se mostrarán para CRM) */}
           <footer class="flex items-end justify-start mt-4 gap-x-4">
               {github && (
                 <LinkButton href={github}>
